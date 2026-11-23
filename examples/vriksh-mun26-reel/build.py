@@ -103,10 +103,14 @@ def render_shot(i):
         sc.alpha_composite(band(y0, y1))
 
     if s["k"] == "end":
-        bg = gradient((44, 82, 60), (16, 32, 25), radial=True); drift = Drift(14, [SAGE, GOLD, (120, 160, 120)], 9)
-        logo = logo_sprite(0.85)
-        nm = text_sprite("Vriksh", F("pf600", 140), CREAM); tg = text_sprite("Made For Her", F("pf400i", 74), GOLD)
-        sub = text_sprite("HERBAL SANITARY NAPKINS  ·  UAE & INDIA", F("pp500", 30), SAGE, spacing=5)
+        bg = gradient((20, 78, 68), (9, 46, 40), radial=True); drift = Drift(12, [SAGE, (214, 232, 120), (240, 180, 190)], 9, (50, 120))
+        # official logo, edges feathered into a circle so it melts into the background
+        lg = Image.open(os.path.join(HERE, "vriksh_logo.jpg")).convert("RGB").resize((800, 795), Image.LANCZOS)
+        yy, xx = np.mgrid[0:lg.height, 0:lg.width].astype(np.float32)
+        r = np.sqrt((xx - lg.width / 2) ** 2 + (yy - lg.height / 2) ** 2)
+        m = np.clip((405 - r) / 25, 0, 1) * 255
+        logo = lg.convert("RGBA"); logo.putalpha(Image.fromarray(m.astype(np.uint8)))
+        sub = text_sprite("HERBAL SANITARY NAPKINS  ·  UAE & INDIA", F("pp500", 32), SAGE, spacing=5)
         bw, bh = 820, 116
         btn = Image.new("RGBA", (bw + 4, bh + 4), (0, 0, 0, 0)); ImageDraw.Draw(btn).rounded_rectangle([2, 2, bw, bh], bh // 2, fill=GOLD)
         bt = text_sprite("@vrikshherbalsanitarynapkins", F("pp600", 40), GREEN)
@@ -114,15 +118,16 @@ def render_shot(i):
         fol = text_sprite("Follow our journey", F("pf400i", 56), CREAM)
         def draw(t):
             fr = ms.kenburns(bg, t, s["d"], 1.0, 1.08); drift.draw(fr, t)
-            lp = back_out(prog(t, .1, .6), 1.2)
-            if lp > 0: paste(fr, logo, W / 2, 520, alpha=clamp(lp), scale=.4 + .6 * lp)
-            reveal_word(fr, nm, W / 2, 790, t, .35); reveal_word(fr, tg, W / 2, 915, t, .6)
-            reveal_word(fr, sub, W / 2, 1020, t, .85, .5, 25)
-            reveal_word(fr, fol, W / 2, 1170, t, 1.15, .5, 30)
-            p = back_out(prog(t, 1.4, .55))
+            lp = back_out(prog(t, .05, .75), 1.1)
+            if lp > 0:
+                breathe = 1 + .012 * math.sin(max(0, t - .9) * 2.4)
+                paste(fr, logo, W / 2, 640, alpha=clamp(lp), scale=(.55 + .45 * lp) * breathe, rot=(1 - clamp(lp)) * -12)
+            reveal_word(fr, sub, W / 2, 1110, t, .8, .5, 25)
+            reveal_word(fr, fol, W / 2, 1210, t, 1.05, .5, 30)
+            p = back_out(prog(t, 1.3, .55))
             if p > 0:
-                pulse = 1 + .03 * math.sin(max(0, t - 2.0) * 6)
-                paste(fr, btn, W / 2, 1295, alpha=clamp(p), scale=(.6 + .4 * p) * pulse)
+                pulse = 1 + .03 * math.sin(max(0, t - 1.9) * 6)
+                paste(fr, btn, W / 2, 1335, alpha=clamp(p), scale=(.6 + .4 * p) * pulse)
             return fr
         frames = (draw(j / FPS) for j in range(n))
     elif s["k"] == "video":
