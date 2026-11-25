@@ -27,6 +27,25 @@ in this project (via `CLAUDE.md`).
 | `/vriksh-dm` | "someone commented..." / "reply to this DM" | Comment replies, DM-to-order flow, follow-ups, blocked-DM fixes, ManyChat and WhatsApp automation |
 | `i-hate-editing` (built into this project) | "edit this talking video" | Edits videos of you speaking to camera: cuts pauses, adds captions, sound and colour |
 
+### Instagram pack (11 skills)
+
+| Skill | Say this | What it does |
+|---|---|---|
+| `/ig-post` | "write a post for this photo" | Hook (3 options), caption, CTA, 5 hashtags, keyword line, alt text, first comment to pin |
+| `/ig-reel` | "reel idea: ..." | Before filming: scored hooks, beat sheet, script, shot list, which studio style + sound |
+| `/ig-carousel` | "make a carousel on ..." | 7 to 10 slides: swipe-worthy cover, slide copy, design notes; can render slides |
+| `/ig-story` | "stories for today" | Frame-by-frame Stories with poll, quiz, question and link stickers |
+| `/ig-plan` | "plan my week" | Weekly or monthly calendar: format, hook, style + sound rotation, posting times |
+| `/ig-viral` | "why did this reel go viral?" | Breaks down viral reels you share, builds a swipe file and Vriksh versions |
+| `/ig-hashtag` | "hashtags / keywords" | 5-hashtag sets, keyword lines, alt text and name-field keywords |
+| `/ig-profile` | "fix my profile" | Scores your profile out of 100, rewrites bio, highlights, pinned posts |
+| `/ig-comment` | "comments for these posts" | Genuine comments for OTHER accounts' posts to grow reach and network |
+| `/ig-reply` | "reply to these comments" | Replies to comments on YOUR posts, buyers first, turns them into DMs |
+| `/ig-stats` | (share Insights screenshots) | Explains your numbers in plain words + 3 actions for next week |
+
+Note: Claude cannot log in to Instagram, so for stats, viral research and comments,
+share screenshots or paste the text.
+
 Skill files live in `.claude/skills/<name>/SKILL.md`.
 
 ---
