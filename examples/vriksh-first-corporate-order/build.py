@@ -30,21 +30,21 @@ SHOTS = [
       ring=(.05, .372, .60, .425, .55), cap=["IT STARTED WITH", "*ONE EMAIL*"], top=True),
  dict(k="photo", src="2216771e-image.jpg", d=2.0, fx=.55, fy=.6, z=(1.12, 1.0),
       blur=[(.085, .385, .205, .432), (.375, .368, .525, .412), (.485, .418, .585, .462), (.245, .478, .375, .528), (.085, .16, .195, .205)],
-      cap=["*200 PADS*", "PACKED WITH CARE"]),
+      cap=["*200 PADS*", "2 OFFICES"]),
  dict(k="photo", src="5443a15f-image.jpg", d=1.6, fx=.45, fy=.55, z=(1.0, 1.1),
       blur=[(0, .585, .215, .665), (.255, .515, .43, .575), (.565, .525, .755, .59), (.755, .645, .965, .725), (.315, .83, .515, .9), (.09, .19, .245, .27)],
       cap=["BRANDED", "*PAD HOLDERS*"]),
  dict(k="photo", src="2d04058e-image.jpg", d=1.5, fx=.6, fy=.45, z=(1.15, 1.02), cap=["EVEN THE", "*CABLE* GLOWS"]),
- dict(k="photo", src="185a4fd3-image.jpg", d=1.6, fx=.5, fy=.42, z=(1.0, 1.1), cap=["*DELIVERY DAY*"], top=True),
+ dict(k="photo", src="7dc870d8-image.jpg", d=1.6, fx=.4, fy=.45, z=(1.12, 1.0), cap=["STOP 1:", "*GUINDY*"], top=True),
+ dict(k="photo", src="ec8a9819-image.jpg", d=1.3, fx=.55, fy=.35, z=(1.0, 1.1), blur=[(.03, .285, .33, .365)]),
+ dict(k="photo", src="659d8dd3-image.jpg", d=1.0, fx=.72, fy=.27, z=(1.35, 1.5), blur=[(.36, .31, .87, .39)]),
+ dict(k="photo", src="83dfb7ec-image.jpg", d=1.3, fx=.6, fy=.2, z=(1.05, 1.15)),
+ dict(k="photo", src="f27af10c-image.jpg", d=1.2, fx=.62, fy=.5, z=(1.0, 1.1)),
+ dict(k="card", src="81dda3e6-image.jpg", d=2.6, cap=["*DELIVERED.*", "100 PADS"]),
+ dict(k="photo", src="185a4fd3-image.jpg", d=1.6, fx=.5, fy=.42, z=(1.0, 1.1), cap=["STOP 2:", "*VANDALUR*"], top=True),
  dict(k="photo", src="75fc7e52-image.jpg", d=1.1, fx=.5, fy=.5, z=(1.1, 1.0)),
- dict(k="video", src="bc58fdd7-c3a95c3a-ee2d-4d3e-a9f4-b124f2e4d659.mov", d=1.7, ss=27.0, sp=1.0, fy=.5, cap=["ON THE WAY"]),
- dict(k="photo", src="7dc870d8-image.jpg", d=1.3, fx=.4, fy=.45, z=(1.12, 1.0)),
- dict(k="photo", src="ec8a9819-image.jpg", d=1.4, fx=.55, fy=.35, z=(1.0, 1.1),
-      blur=[(.03, .285, .33, .365)], cap=["*CORPORATE*", "OFFICE"]),
- dict(k="photo", src="659d8dd3-image.jpg", d=1.1, fx=.72, fy=.27, z=(1.35, 1.5), blur=[(.36, .31, .87, .39)]),
- dict(k="photo", src="83dfb7ec-image.jpg", d=1.4, fx=.6, fy=.2, z=(1.05, 1.15)),
- dict(k="photo", src="595890cc-image.jpg", d=1.3, fx=.45, fy=.3, z=(1.0, 1.08)),
- dict(k="card", src="81dda3e6-image.jpg", d=2.7, cap=["*DELIVERED.*"]),
+ dict(k="video", src="bc58fdd7-c3a95c3a-ee2d-4d3e-a9f4-b124f2e4d659.mov", d=1.6, ss=27.0, sp=1.0, fy=.5, cap=["ALMOST", "*THERE*"]),
+ dict(k="card", src="2eafdb42-image.jpg", d=2.6, cw=800, cap=["*DELIVERED.*", "100 MORE"]),
  dict(k="card", src="1b74c03c-image.jpg", d=2.6, quiet=True, cw=880,
       blur=[(0, .108, 1, .247), (.02, .262, 1, .318), (.02, .334, 1, .39), (.02, .405, 1, .452), (.02, .47, 1, .512), (.02, .53, 1, .685), (.02, .70, 1, .775), (0, .78, 1, 1.0)],
       cap=["NEXT:", "*1-YEAR SUPPLY DEAL*"]),
@@ -52,8 +52,9 @@ SHOTS = [
  dict(k="cta", d=3.0),
  dict(k="end", d=3.4),
 ]
-TRANS = ["zoomin", "slideup", "smoothleft", "smoothleft", "hblur", "slideleft", "smoothup", "slideleft",
-         "smoothleft", "slideup", "smoothleft", "slideleft", "fadewhite", "smoothup", "circleopen", "slideup", "circleopen"]
+TRANS = ["zoomin", "slideup", "smoothleft", "smoothleft", "fadeblack", "smoothup", "slideleft", "smoothleft",
+         "slideup", "fadewhite", "fadeblack", "slideleft", "smoothleft", "fadewhite", "smoothup", "circleopen",
+         "slideup", "circleopen"]
 assert len(TRANS) == len(SHOTS) - 1
 CAP_T0, CAP_STAG = 0.12, 0.09
 
@@ -235,7 +236,7 @@ def frames_for(i):
         card = Image.new("RGBA", (cw + 36, chh + 36), WHITE + (255,)); card.paste(img.resize((cw, chh), Image.LANCZOS).filter(ImageFilter.UnsharpMask(1.2, 60, 2)), (18, 18))
         sh = Image.new("RGBA", (card.width + 80, card.height + 80), (0, 0, 0, 0)); ImageDraw.Draw(sh).rectangle([40, 55, card.width + 40, card.height + 55], fill=(0, 0, 0, 150))
         sh = sh.filter(ImageFilter.GaussianBlur(22)); sh.alpha_composite(card, (40, 40)); card = sh
-        conf = Confetti(120, 8, .45)
+        conf = Confetti(120, 8 + i, .45)
         def gen():
             for j in range(n):
                 t = j / FPS; fr = ms.kenburns(bgi, t, s["d"], 1.05, 1.12)
@@ -354,7 +355,8 @@ def write_timeline():
     for i, s in enumerate(SHOTS): idx.setdefault(s["k"], i)
     pops += [start(idx["founder"]) + .2, start(idx["founder"]) + .5, start(idx["cta"]) + .05, start(idx["cta"]) + .45, start(idx["cta"]) + .65]
     tl = dict(cuts=[o + T / 2 for o in offs], total=total, n=len(SHOTS), pops=sorted(pops),
-              shutter=[start(idx["card"]) + .38], booms=[.58, .9, start(idx["cta"]) + .2],
+              shutter=[start(i) + .38 for i, s in enumerate(SHOTS) if s["k"] == "card" and not s.get("quiet")],
+              booms=[.58, .9, start(idx["cta"]) + .2] + [start(i) for i, s in enumerate(SHOTS) if s.get("cap") and s["cap"][0].startswith("STOP")],
               music=dict(bpm=120, beat_from=1, brk=[idx["card"] - 2, idx["card"]], hit=idx["card"]))
     json.dump(tl, open(os.path.join(WORK, "timeline.json"), "w")); return offs, total
 
