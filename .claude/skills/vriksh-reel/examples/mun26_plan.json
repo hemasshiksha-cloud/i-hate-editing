@@ -1,0 +1,267 @@
+{
+ "title": "Vriksh x JSSPS MUN-26: kitchen table to stage",
+ "media_dir": "media",
+ "work_dir": "work",
+ "output": "Vriksh_MUN26_Reel_9x16.mp4",
+ "hook": {
+  "label": "VRIKSH  \u00b7  BEHIND THE SCENES",
+  "l1": "From my kitchen table",
+  "l2": "to the MUN stage."
+ },
+ "end": {
+  "sub": "HERBAL SANITARY NAPKINS  \u00b7  UAE & INDIA",
+  "cta": "Follow our journey",
+  "handle": "@vrikshherbalsanitarynapkins"
+ },
+ "music": {
+  "beat_from": 8,
+  "brk": [
+   14,
+   16
+  ],
+  "hit": 16
+ },
+ "shots": [
+  {
+   "k": "photo",
+   "src": "fd570ad6-image.jpg",
+   "d": 2.7,
+   "fx": 0.43,
+   "fy": 0.5,
+   "z": [
+    1.18,
+    1.04
+   ],
+   "hook": true
+  },
+  {
+   "k": "photo",
+   "src": "f75d0160-image.jpg",
+   "d": 2.4,
+   "fx": 0.4,
+   "fy": 0.55,
+   "z": [
+    1.0,
+    1.1
+   ],
+   "lab": "WHERE IT STARTS",
+   "l1": "Herbal. Plant-based.",
+   "l2": "Made for her."
+  },
+  {
+   "k": "photo",
+   "src": "de459e91-image.jpg",
+   "d": 2.1,
+   "fx": 0.45,
+   "fy": 0.45,
+   "z": [
+    1.12,
+    1.0
+   ],
+   "lab": "STEP 1",
+   "l1": "Design the cards",
+   "top": true
+  },
+  {
+   "k": "video",
+   "src": "9f6fb117-IMG_0238.mov",
+   "d": 3.0,
+   "ss": 0.0,
+   "sp": 1.4,
+   "fy": 0.5,
+   "l1": "Print. Check.",
+   "l2": "Repeat."
+  },
+  {
+   "k": "photo",
+   "src": "5b2d9664-image.jpg",
+   "d": 1.5,
+   "fx": 0.5,
+   "fy": 0.45,
+   "z": [
+    1.0,
+    1.08
+   ],
+   "lab": "STEP 2",
+   "l1": "Cut by hand"
+  },
+  {
+   "k": "photo",
+   "src": "72696e42-image.jpg",
+   "d": 1.5,
+   "fx": 0.45,
+   "fy": 0.4,
+   "z": [
+    1.08,
+    1.0
+   ],
+   "l1": "Family-powered",
+   "l2": "always."
+  },
+  {
+   "k": "video",
+   "src": "192be916-IMG_0283.mov",
+   "d": 3.0,
+   "ss": 0.3,
+   "sp": 1.5,
+   "fy": 0.55,
+   "lab": "STEP 3",
+   "l1": "Pack with love",
+   "top": true
+  },
+  {
+   "k": "photo",
+   "src": "bc4e4d87-image.jpg",
+   "d": 1.8,
+   "fx": 0.4,
+   "fy": 0.5,
+   "z": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "k": "video",
+   "src": "f0a7ef72-IMG_0293.mov",
+   "d": 3.6,
+   "ss": 4.0,
+   "sp": 2.2,
+   "fy": 0.5,
+   "l1": "Bag after bag",
+   "l2": "after bag."
+  },
+  {
+   "k": "photo",
+   "src": "dba8678b-image.jpg",
+   "d": 2.4,
+   "fx": 0.5,
+   "fy": 0.5,
+   "z": [
+    1.12,
+    1.0
+   ],
+   "lab": "READY",
+   "l1": "Sealed with our logo"
+  },
+  {
+   "k": "video",
+   "src": "212b9f78-IMG_0410.mov",
+   "d": 2.4,
+   "ss": 0.0,
+   "sp": 0.78,
+   "fy": 0.5,
+   "lab": "THE BIG DAY",
+   "l1": "Off to JSSPS MUN-26"
+  },
+  {
+   "k": "video",
+   "src": "44e2627b-IMG_0411.mov",
+   "d": 2.1,
+   "ss": 0.3,
+   "sp": 1.0,
+   "fy": 0.12,
+   "l1": "We've arrived."
+  },
+  {
+   "k": "fit",
+   "src": "4bf0c0ad-image.jpg",
+   "d": 2.1,
+   "scale": 1.45,
+   "cx": 0.5,
+   "z": [
+    1.0,
+    1.06
+   ],
+   "lab": "JSSPS MUN 2026",
+   "l1": "Closing Ceremony"
+  },
+  {
+   "k": "fit",
+   "src": "5b2275d4-image.jpg",
+   "d": 3.0,
+   "scale": 1.0,
+   "cx": 0.5,
+   "z": [
+    1.0,
+    1.05
+   ],
+   "l1": "Our goodie bags,",
+   "l2": "in the best hands."
+  },
+  {
+   "k": "photo",
+   "src": "47a782b8-image.jpg",
+   "d": 1.8,
+   "fx": 0.43,
+   "fy": 0.5,
+   "z": [
+    1.0,
+    1.1
+   ],
+   "l1": "And then..."
+  },
+  {
+   "k": "photo",
+   "src": "e7272406-image.jpg",
+   "d": 2.1,
+   "fx": 0.39,
+   "fy": 0.5,
+   "z": [
+    1.0,
+    1.12
+   ]
+  },
+  {
+   "k": "photo",
+   "src": "fd570ad6-image.jpg",
+   "d": 3.2,
+   "fx": 0.43,
+   "fy": 0.5,
+   "z": [
+    1.0,
+    1.1
+   ],
+   "spot": true,
+   "lab": "JSSPS MUN-26",
+   "l1": "Honoured on stage.",
+   "l2": "Grateful beyond words."
+  },
+  {
+   "k": "photo",
+   "src": "dd620b66-image.jpg",
+   "d": 2.4,
+   "fx": 0.5,
+   "fy": 0.45,
+   "z": [
+    1.1,
+    1.0
+   ],
+   "l1": "Thank you,",
+   "l2": "JSS Private School."
+  },
+  {
+   "k": "end",
+   "d": 4.2
+  }
+ ],
+ "transitions": [
+  "hblur",
+  "smoothleft",
+  "slideup",
+  "fade",
+  "fade",
+  "circleopen",
+  "smoothleft",
+  "zoomin",
+  "slideleft",
+  "fadeblack",
+  "smoothup",
+  "fade",
+  "circleopen",
+  "fade",
+  "fade",
+  "fadewhite",
+  "radial",
+  "circleopen"
+ ]
+}
