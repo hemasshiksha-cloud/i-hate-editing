@@ -56,7 +56,7 @@ Skill files live in `.claude/skills/<name>/SKILL.md`.
 |---|---|---|---|---|
 | 1 | **Elegant Botanical** | Forest green, gold, cream, floating leaves, soft text reveals | Playfair Display + Poppins | Vriksh brand reel, JSSPS MUN-26 reel |
 | 2 | **Bold Viral** | Lime highlight boxes, words popping one by one, sticker cutouts, confetti, screen shake, light rays | Montserrat Black + Anton | Solidpro first corporate order |
-| 3 | **Handmade** | Kraft paper, torn notebook notes, tape, polaroids, DELIVERED stamps, self-drawing marker scribbles, paper wipes | Caveat, Permanent Marker, Special Elite, DM Serif | Demo only. **Reserved for the NEXT video** |
+| 3 | **Handmade** | Kraft paper, torn notebook notes, tape, polaroids, DELIVERED stamps, self-drawing marker scribbles, paper wipes | Caveat, Permanent Marker, Special Elite, DM Serif | Online orders reel (Amazon.ae + Flipkart) |
 
 **Ideas for future styles** (each new video gets one of these, or a fresh idea):
 - **Editorial Magazine**: big serif cover headlines, column layouts, page-turn transitions
@@ -76,7 +76,8 @@ All music is composed in code, so it is original, royalty-free and never gets mu
 |---|---|---|---|
 | A | Warm pad + gentle plucks, 84 to 100 BPM, F major, whooshes and chimes | Calm, emotional | Brand reel, MUN-26 |
 | B | 120 BPM beat, a pop on every word, camera shutter, bass booms | Energetic, viral | Solidpro corporate order |
-| C | Lo-fi piano, vinyl crackle, paper taps, stamp thuds, marker scratches, paper swooshes | Cosy, handmade | Handmade demo (goes with the next video) |
+| C | Lo-fi piano, vinyl crackle, paper taps, stamp thuds, marker scratches, paper swooshes | Cosy, handmade | Handmade demo (unused for posting) |
+| D | Acoustic guitar strums + picked melody, claps, shaker; printer whirr, sticker peel, mouse clicks, cash-register cha-ching | Bright, feel-good | Online orders reel |
 
 **Ideas for future sounds:** acoustic guitar folk, tabla and flute fusion (Indian), soft
 house groove, music box and bells, cinematic strings swell, synthwave, playful ukulele,
@@ -92,7 +93,8 @@ projector, typewriter keys, glass clinks, cash register, and so on).
 | Nov 2026 | Vriksh brand reel (no footage) | 1 Elegant Botanical | A | Done |
 | Nov 2026 | JSSPS MUN-26: kitchen table to stage | 1 Elegant Botanical | A | Done |
 | Nov 2026 | Solidpro: OUR FIRST CORPORATE ORDER (Guindy + Vandalur) | 2 Bold Viral | B | **In Instagram drafts, posting tomorrow. Do not change.** |
-| Next | (next video) | 3 Handmade | C, refreshed with new instruments and new foley | Waiting for footage |
+| Nov 2026 | Online orders: Amazon.ae + Flipkart dispatch | 3 Handmade | D Acoustic | Delivered, awaiting Hema's notes |
+| Next | (next video) | Not 3 (pick a new style, e.g. Editorial Magazine or Film Diary) | Not D | Waiting for footage |
 
 Add a row for every new video.
 
