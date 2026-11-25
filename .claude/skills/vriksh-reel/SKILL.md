@@ -11,6 +11,12 @@ Instagram: `@vrikshherbalsanitarynapkins`. Owner: Hema (founder).
 The engine lives in `scripts/` and is driven by one JSON shot plan. You make the
 creative decisions (story, order, text, timing); the engine does the craft.
 
+## Before you start
+
+Read `VRIKSH_STUDIO.md` (project root). Every new video must use a **different style
+and different sound design** from the previous one in its Video log, and a log row
+is added when the video is delivered. Never change videos marked "Do not change".
+
 ## Workflow
 
 1. **Inventory every file.** `ffprobe` each video (duration, fps, rotation; phone
