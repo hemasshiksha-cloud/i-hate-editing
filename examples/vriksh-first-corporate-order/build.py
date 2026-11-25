@@ -49,7 +49,7 @@ SHOTS = [
       blur=[(0, .108, 1, .247), (.02, .262, 1, .318), (.02, .334, 1, .39), (.02, .405, 1, .452), (.02, .47, 1, .512), (.02, .53, 1, .685), (.02, .70, 1, .775), (0, .78, 1, 1.0)],
       cap=["NEXT:", "*1-YEAR SUPPLY DEAL*"]),
  dict(k="founder", d=2.7),
- dict(k="cta", d=3.8),
+ dict(k="cta", d=3.0),
  dict(k="end", d=3.4),
 ]
 TRANS = ["zoomin", "slideup", "smoothleft", "smoothleft", "fadeblack", "smoothup", "slideleft", "smoothleft",
@@ -266,26 +266,17 @@ def frames_for(i):
         l2 = text_img("BECOME A VRIKSH", FT("mont900", 70), WHITE, 5)
         t3 = text_img("RESELLER", FT("anton", 170), DARK)
         l3 = Image.new("RGBA", (t3.width + 30, t3.height - 10), (0, 0, 0, 0)); ImageDraw.Draw(l3).rounded_rectangle([0, 0, l3.width - 1, l3.height - 1], 26, fill=LIME); l3.alpha_composite(t3, (15, -12))
-        WA = (37, 211, 102)
-        bw, bh = 900, 150
-        btn = Image.new("RGBA", (bw, bh), (0, 0, 0, 0)); ImageDraw.Draw(btn).rounded_rectangle([0, 0, bw - 1, bh - 1], bh // 2, fill=WA)
-        ic = Image.new("RGBA", (96, 96), (0, 0, 0, 0)); di = ImageDraw.Draw(ic)
-        di.ellipse([6, 6, 90, 90], outline=WHITE, width=8); di.polygon([(14, 92), (22, 66), (38, 80)], fill=WHITE)
-        di.rounded_rectangle([34, 30, 46, 52], 5, fill=WHITE); di.rounded_rectangle([50, 46, 66, 58], 5, fill=WHITE); di.line([(40, 50), (56, 52)], fill=WHITE, width=9)
-        bt = text_img("+91 97907 82105", FT("mont900", 58), WHITE)
-        gx = (bw - (ic.width + 20 + bt.width)) // 2
-        btn.alpha_composite(ic, (gx, bh // 2 - ic.height // 2)); btn.alpha_composite(bt, (gx + ic.width + 20, bh // 2 - bt.height // 2))
-        wl = text_img("WHATSAPP TO START TODAY", FT("mont900", 46), WHITE, 4)
+        bw, bh = 760, 128
+        btn = Image.new("RGBA", (bw, bh), (0, 0, 0, 0)); ImageDraw.Draw(btn).rounded_rectangle([0, 0, bw - 1, bh - 1], bh // 2, fill=WHITE)
+        bt = text_img('DM "RESELLER" TO START', FT("mont900", 46), DARK); btn.alpha_composite(bt, (bw // 2 - bt.width // 2, bh // 2 - bt.height // 2))
         def gen():
             for j in range(n):
                 t = j / FPS; fr = brand_bg(t, s["d"]); drift.draw(fr, t)
                 for spr, y, th in [(l1, 560, .05), (l2, 780, .45), (l3, 930, .65)]:
                     q = prog(t, th, .2)
                     if q > 0: paste(fr, spr, W / 2, y, alpha=clamp(q * 2), scale=1 + 1.0 * (1 - ease_out(q)))
-                q = prog(t, .95, .2)
-                if q > 0: paste(fr, wl, W / 2, 1110, alpha=clamp(q * 2), scale=1 + .6 * (1 - ease_out(q)))
-                p = back_out(prog(t, 1.15, .45))
-                if p > 0: paste(fr, btn, W / 2, 1250, alpha=clamp(p), scale=(.6 + .4 * p) * (1 + .03 * math.sin(max(0, t - 1.6) * 7)))
+                p = back_out(prog(t, 1.05, .45))
+                if p > 0: paste(fr, btn, W / 2, 1160, alpha=clamp(p), scale=(.6 + .4 * p) * (1 + .035 * math.sin(max(0, t - 1.5) * 7)))
                 fr = shake(fr, t, .2, 14)
                 yield fr
         return gen(), n, None, False, None
