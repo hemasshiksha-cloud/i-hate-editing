@@ -93,7 +93,7 @@ projector, typewriter keys, glass clinks, cash register, and so on).
 | Nov 2026 | Vriksh brand reel (no footage) | 1 Elegant Botanical | A | Done |
 | Nov 2026 | JSSPS MUN-26: kitchen table to stage | 1 Elegant Botanical | A | Done |
 | Nov 2026 | Solidpro: OUR FIRST CORPORATE ORDER (Guindy + Vandalur) | 2 Bold Viral | B | **In Instagram drafts, posting tomorrow. Do not change.** |
-| Nov 2026 | Online orders: Amazon.ae + Flipkart dispatch | 3 Handmade | D Acoustic | Delivered, awaiting Hema's notes |
+| Nov 2026 | Online orders: Amazon.ae + Flipkart dispatch (v2: "a month ago: 1st order" hook + daily routine) | 3 Handmade | D Acoustic | Delivered v2, awaiting Hema's notes |
 | Next | (next video) | Not 3 (pick a new style, e.g. Editorial Magazine or Film Diary) | Not D | Waiting for footage |
 
 Add a row for every new video.

@@ -67,28 +67,50 @@ def strip_text(txt, f, seed, pad=(46, 24), col=None):
 
 # ---------------- scenes ----------------
 def s_hook():
-    d = 3.3; bg = paper(W, H, P["kraft"], 201)
-    amz = load("8d03a5c8-image.png").crop((0, int(.37 * 2796), 1290, int(.539 * 2796)))
-    fk = load("2edffb05-image.jpg", [(.17, .55, .88, .70)])
-    A = torn_shot(amz, 960, 3); Fk = torn_shot(fk, 960, 4)
-    top = text("my notifications lately:", font("caveat700", 96), P["ink"])
-    bot1 = text("so let's", font("caveat700", 96), P["ink"]); bot2 = text("pack them.", font("dmserif_i", 140), P["ink"])
-    star = starburst(118, YELLOW, "2 STORES", seed=4)
-    ah = A.height; pad = (A.width - 960) // 2
-    circ = scribble_circle(W / 2 - 480 + .42 * 960, 610 - ah / 2 + pad + .27 * (ah - 2 * pad), 300, 58, 3)
+    d = 4.4; bg = paper(W, H, P["kraft"], 201)
+    first = torn_shot(Image.open(os.path.join(HERE, "first_order.png")).convert("RGB"), 860, 2)
+    oct29 = torn_shot(Image.open(os.path.join(HERE, "oct29.png")).convert("RGB"), 880, 5)
+    nov1 = torn_shot(Image.open(os.path.join(HERE, "nov1.png")).convert("RGB"), 880, 6)
+    amz = torn_shot(load("8d03a5c8-image.png").crop((0, int(.37 * 2796), 1290, int(.539 * 2796))), 900, 3)
+    fk = torn_shot(load("2edffb05-image.jpg", [(.17, .55, .88, .70)]), 900, 4)
+    ago = text("a month ago:", font("caveat700", 92), P["ink"]); now = text("now:", font("caveat700", 110), P["ink"])
+    b1 = text("so let's", font("caveat700", 92), P["ink"]); b2 = text("pack them.", font("dmserif_i", 136), P["ink"])
+    star = starburst(112, YELLOW, "2 STORES", seed=4)
+    fh = first.height; circ = scribble_circle(W / 2 + 125, 470 - fh / 2 + 30 + .37 * (fh - 60), 250, 50, 3)
+    stack = [(oct29, 1010, -4, 1.75), (nov1, 1120, 3, 1.95), (amz, 1240, -2, 2.15), (fk, 1400, 2, 2.4)]
     def draw(t):
         fr = bg.copy()
-        drop(fr, top, W / 2 - 40, 250, t, .05, 1, -3)
-        drop(fr, A, W / 2, 610, t, .3, 2, -2)
-        drop(fr, Fk, W / 2 + 10, 1010, t, .8, 3, 2)
-        strokes(fr, [(circ, 1.3, .5, ACC, 9, False)], t)
-        drop(fr, star, 905, 1240, t, 1.5, 4, 12)
-        drop(fr, bot1, W / 2 - 200, 1430, t, 1.95, 5, -3); drop(fr, bot2, W / 2 + 40, 1570, t, 2.2, 6, -2)
+        drop(fr, ago, W / 2 - 230, 200, t, .05, 1, -4)
+        drop(fr, first, W / 2, 470, t, .3, 2, -3)
+        strokes(fr, [(circ, .85, .45, ACC, 9, False)], t)
+        drop(fr, now, 170, 800, t, 1.45, 3, -6)
+        for k, (spr, y, r, t0) in enumerate(stack): drop(fr, spr, W / 2 + (25 if k % 2 else -15), y, t, t0, 10 + k, r)
+        drop(fr, star, 905, 790, t, 2.7, 4, 12)
+        drop(fr, b1, W / 2 - 230, 1690, t, 3.0, 5, -3); drop(fr, b2, W / 2 + 60, 1810, t, 3.25, 6, -2)
         return fr
-    return d, draw, dict(drops=[.05, .3, .8, 1.5, 1.95, 2.2], scrib=[(1.3, .5)], ching=[.3])
+    return d, draw, dict(drops=[.05, .3, 1.45, 1.75, 1.95, 2.15, 2.4, 2.7, 3.0, 3.25], scrib=[(.85, .45)], ching=[.3, 2.15])
+
+def clip_scene(src, ss, d, sp, fy, lab_txt=None, note_txt=None, lab_y=300, note_y=1600, extra=None):
+    def make():
+        fs = frames(src, ss, d, sp, (W, H), fy=fy)
+        lab = label(lab_txt, P["paper"], P["ink"], len(lab_txt or "x") * 7, 46) if lab_txt else None
+        note = strip_text(note_txt, font("caveat700", 78), len(note_txt or "y") * 5) if note_txt else None
+        def draw(t):
+            fr = fs[min(int(t * FPS), len(fs) - 1)].convert("RGBA")
+            if lab: drop(fr, lab, W / 2, lab_y, t, .12, 1, -2)
+            if note: drop(fr, note, W / 2 + 20, note_y, t, .5, 2, -3)
+            return fr
+        ev = dict(drops=([.12] if lab else []) + ([.5] if note else [])); ev.update(extra or {})
+        return d, draw, ev
+    return make
+
+s_lights = clip_scene("619c1064-IMG_0749.mov", 0.25, 1.3, 1.0, .5, "the routine starts", None, extra=dict(click=[.55]))
+s_laptop = clip_scene("e93b2d24-IMG_0822.mov", 2.6, 1.7, 1.4, .5, "step 1 · open the seller hub", None)
+s_cupboard = clip_scene("0b654c6e-IMG_0750.mov", 0.35, 1.2, 1.0, .5, None, "grab from stock", note_y=1620)
+s_mailer = clip_scene("207b7a9a-IMG_0751.mov", 0.0, 1.4, 0.85, .55, "into the mailer", None)
 
 def s_shelf():
-    d = 2.4; img = load("ad80ce39-image.jpg")
+    d = 2.1; img = load("ad80ce39-image.jpg")
     lab = label("the stock room", P["paper"], P["ink"], 5, 54)
     note = strip_text("(yes, it's a shelf)", font("caveat700", 70), 6)
     def draw(t):
@@ -99,7 +121,7 @@ def s_shelf():
 
 def s_pickup():
     d = 2.5; img = load("70e2dbe9-image.jpg")
-    lab = label("step 1 · schedule the pickup", P["paper"], P["ink"], 7, 46)
+    lab = label("step 2 · schedule the pickup", P["paper"], P["ink"], 7, 46)
     def draw(t):
         z = 1.05 + .1 * ease_inout(t / d)
         fr, (x, y, cw, ch) = cover(img, .52, .55, z)
@@ -114,7 +136,7 @@ def s_pickup():
 def s_print():
     d = 3.0; bg = paper(W, H, P["paper"], 301)
     fs = frames("4fc574c7-b1e98f07-5234-422c-8590-e10d90806365.mov", 0.0, d, 1.0, (760, 0), fit="w")
-    lab = label("step 2 · print the label", P["paper"], P["ink"], 8, 48)
+    lab = label("step 3 · print the label", P["paper"], P["ink"], 8, 48)
     note = text("little printer, big day", font("caveat700", 80), P["ink"])
     tp = tape(240, 70, (250, 246, 236), 9, 150)
     def draw(t):
@@ -130,7 +152,7 @@ def s_print():
 
 def s_peel():
     d = 1.7; fs = frames("3541e773-IMG_1371.mov", 2.9, d, 1.0, (W, H))
-    lab = label("step 3 · barcode on every pack", P["paper"], P["ink"], 10, 44)
+    lab = label("step 4 · barcode on every pack", P["paper"], P["ink"], 10, 44)
     def draw(t):
         fr = fs[min(int(t * FPS), len(fs) - 1)].convert("RGBA"); drop(fr, lab, W / 2, 300, t, .1, 1, -2); return fr
     return d, draw, dict(drops=[.1], peel=[.5])
@@ -168,7 +190,7 @@ def s_hiccup():
 
 def s_door():
     d = 2.6; fs = frames("500b663a-IMG_1375.mov", 3.7, d, .55, (W, H), fy=.6)
-    lab = label("step 4 · ready for pickup", P["paper"], P["ink"], 14, 46)
+    lab = label("step 5 · ready for pickup", P["paper"], P["ink"], 14, 46)
     st = rubber_stamp("SHIPPED", RED, 5, 130, -12)
     def draw(t):
         fr = fs[min(int(t * FPS), len(fs) - 1)].convert("RGBA")
@@ -229,9 +251,9 @@ def s_end():
         return fr
     return d, draw, dict(drops=[.05, .7, 1.0])
 
-SCENES = [s_hook, s_shelf, s_pickup, s_print, s_peel, s_stick, s_pack, s_hiccup, s_door, s_map, s_cta, s_end]
+SCENES = [s_hook, s_lights, s_laptop, s_cupboard, s_shelf, s_pickup, s_print, s_peel, s_stick, s_mailer, s_hiccup, s_door, s_map, s_cta, s_end]
 # transitions: paper wipes on story beats, hard cuts inside the fast dispatch run (4->5->6)
-WIPES = [(P["paper"], 1, "up"), (P["accent2"], 2, "side"), (P["paper"], 3, "up"), None, None, (P["kraft"], 4, "side"),
+WIPES = [(P["paper"], 1, "up"), None, None, None, (P["accent2"], 2, "side"), (P["paper"], 3, "up"), (P["kraft"], 4, "side"), None, None,
          (P["paper"], 5, "up"), (P["accent2"], 6, "side"), (P["paper"], 7, "up"), (P["kraft"], 8, "side"), (P["paper"], 9, "up")]
 
 def render(i):
@@ -269,7 +291,7 @@ def assemble():
                     "-filter_complex", "[0:v]format=yuv420p[v];[1]volume=1.25,loudnorm=I=-14:TP=-1.5:LRA=9[a]",
                     "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-maxrate", "16M", "-bufsize", "32M",
                     "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest", raw], check=True)
-    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", raw, "-c:v", "copy", "-af", "volume=1.3dB,alimiter=limit=0.79:level=false",
+    subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", raw, "-c:v", "copy", "-af", "acompressor=threshold=0.12:ratio=3:attack=3:release=80:makeup=1.6,loudnorm=I=-14:TP=-2:LRA=8,aresample=48000",
                     "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", out], check=True)
     print("wrote", out, round(total, 2))
 
